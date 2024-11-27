@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diseño Específico</title>
+    <style>
+      /* Estilo general */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 100vh; /* Asegura que el cuerpo ocupe toda la altura del navegador */
+        display: flex;
+        flex-direction: column;
+      }
+
+      header,
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: left;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: right;
+        gap: 15px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      main {
+        display: flex;
+        background-color: #ffa500;
+        padding: 10px;
+        flex: 1; /* Asegura que el main ocupe el espacio restante */
+      }
+
+      article {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr; /* Tres columnas: izquierda, centro, derecha */
+        grid-template-areas:
+          "nav header aside"
+          "nav section aside"
+          "nav footer aside"; /* Estructura de la cuadrícula */
+        gap: 10px;
+        background-color: #f4f4f4;
+        padding: 10px;
+      }
+
+      /* Panel de navegación a la izquierda */
+      article > nav {
+        grid-area: nav;
+        background-color: #ddd;
+        padding: 10px;
+      }
+
+      /* Encabezado, sección y pie en el centro */
+      article > header {
+        grid-area: header;
+        background-color: #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+
+      article > section {
+        grid-area: section;
+        background-color: #eee;
+        padding: 10px;
+        text-align: center;
+      }
+
+      article > footer {
+        grid-area: footer;
+        background-color: #bbb;
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* Barra lateral a la derecha con tres filas */
+      aside {
+        grid-area: aside;
+        display: grid; /* Usamos grid para organizar las filas */
+        grid-template-rows: repeat(3, 1fr); /* Tres filas iguales */
+        gap: 10px;
+        background-color: #ddd;
+        padding: 10px;
+      }
+
+      aside section {
+        background-color: #bbb;
+        padding: 10px;
+        text-align: center;
+      }
+
+      footer nav ul {
+        justify-content: right;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Encabezado principal -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+      <article>
+        <!-- Navegación secundaria -->
+        <nav>
+          <h1>Herrameintas de aprendizaje</h1>
+          <p>
+            El uso de motores de busqueda como Google, YouTube y GitHub se han
+            convertido en herramientas fundamentales para aprender a programar,
+            ofreciendo acceso a un vasto ecosistema de recursos educativos.
+            Google facilita la búsqueda de tutoriales, documentación oficial y
+            foros donde los programadores resuelven dudas. YouTube proporciona
+            contenido visual y práctico, con cursos, guías paso a paso y
+            demostraciones de código realizadas por expertos. GitHub, por su
+            parte, es ideal para explorar proyectos de código abierto, estudiar
+            implementaciones reales y colaborar con una comunidad activa de
+            desarrolladores. Estas plataformas juntas permiten a los estudiantes
+            y profesionales adquirir conocimientos de manera flexible, accesible
+            y adaptada a sus necesidades específicas.
+          </p>
+        </nav>
+        <header>
+          <h2>Google</h2>
+          <p>
+            Es un motor de búsqueda que permite encontrar recursos como
+            tutoriales, documentación oficial, foros y artículos relacionados
+            con la programación, siendo una herramienta versátil para resolver
+            dudas y aprender conceptos clave.
+          </p>
+        </header>
+        <!-- Sección principal -->
+        <section>
+          <h2>YouTube</h2>
+          <p>
+            Plataforma de video que ofrece contenido educativo visual, como
+            cursos, guías prácticas y ejemplos de programación explicados paso a
+            paso, ideal para aprender de manera interactiva y dinámica.
+          </p>
+        </section>
+        <!-- Pie de artículo -->
+        <footer>
+          <h2>GitHub</h2>
+          <p>
+            Sitio para el alojamiento y gestión de proyectos de código abierto,
+            que permite estudiar repositorios, colaborar en equipo y aprender
+            observando implementaciones reales de código y prácticas de
+            desarrollo profesional.
+          </p>
+        </footer>
+        <!-- Barra lateral -->
+        <aside>
+          <section>
+            <a href="https://www.google.com/" target="_blank">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
+                alt="Imagen A"
+                width="100"
+                height="100"
+              />
+            </a>
+          </section>
+          <section>
+            <a href="https://www.youtube.com/" target="_blank">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png"
+                alt="Imagen B"
+                width="120"
+                height="100"
+              />
+            </a>
+          </section>
+          <section>
+            <a href="https://github.com/" target="_blank">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/1200px-GitHub_Invertocat_Logo.svg.png"
+                alt="Imagen C"
+                width="120"
+                height="100"
+              />
+            </a>
+          </section>
+        </aside>
+      </article>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+      <p>Pie de página</p>
+      <nav>
+        <ul>
+          <li><a href="#">Aviso Legal</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
