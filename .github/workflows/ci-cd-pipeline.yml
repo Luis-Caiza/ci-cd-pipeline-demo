@@ -26,10 +26,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
       - name: Validate HTML
-        uses: chrisderv/validate-html-action@v1.0.0
-        with:
-          path: build/index.html
+        run: htmlhint build/index.html
 
       - name: Verify Build Directory
         run: test -d build && echo "Build directory exists."
