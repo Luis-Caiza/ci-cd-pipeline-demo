@@ -32,8 +32,6 @@ jobs:
       - name: Validate HTML
         run: htmlhint build/index.html
 
-      - name: Verify Build Directory
-        run: test -d build && echo "Build directory exists."
 
   deploy:
     runs-on: ubuntu-latest
