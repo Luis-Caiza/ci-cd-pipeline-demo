@@ -40,12 +40,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy (simulate deployment)
-        run: |
-          echo "Simulating deployment..."
-          zip -r html_app.zip build/
-          echo "Application packaged as html_app.zip"
-
       - name: Upload Deployment Package
         uses: actions/upload-artifact@v3
         with:
