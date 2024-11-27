@@ -1,0 +1,54 @@
+name: CI/CD Pipeline for HTML App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build (simulate build for HTML)
+        run: |
+          echo "Building the application..."
+          mkdir build
+          cp index.html build/
+          echo "Build completed. Files moved to build/"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Validate HTML
+        uses: chrisderv/validate-html-action@v1.0.0
+        with:
+          path: build/index.html
+
+      - name: Verify Build Directory
+        run: test -d build && echo "Build directory exists."
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy (simulate deployment)
+        run: |
+          echo "Simulating deployment..."
+          zip -r html_app.zip build/
+          echo "Application packaged as html_app.zip"
+
+      - name: Upload Deployment Package
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-package
+          path: html_app.zip
